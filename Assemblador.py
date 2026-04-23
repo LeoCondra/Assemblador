@@ -2,7 +2,7 @@
 #                   Prof. Nuncio Perrella                               #
 #                   Instituto Mauá de Tecnologia                        #
 #                   Assemblador para Processador BIP                    #
-#                                                                       #
+#                   Modificado por: Leonardo Condrasisen                #
 #########################################################################
 
 
@@ -11,14 +11,21 @@ Lines = file1.readlines()
 
 result = open('asmimt.cdm', 'w')
 
-conversion = {"HLT":" : 00",
+# Adicionadas instruções: JMP, NOP, CMP, JNE, JL, JG
+conversion = {"HLT":" : 0",
               "STO":" : 1",
               "LD":" : 2",
               "LDI":" : 3",
               "ADD":" : 4",
               "ADDI":" : 5",
               "SUB":" : 6",
-              "SUBI":" : 7"}
+              "SUBI":" : 7",
+              "JMP":" : 8",
+              "NOP":" : 9",
+              "CMP":" : A",
+              "JNE":" : B",
+              "JL":" : C",
+              "JG":" : D"}
 
 count = 0
 n = 0
