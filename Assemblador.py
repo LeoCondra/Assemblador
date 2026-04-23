@@ -5,13 +5,15 @@
 #                   Modificado por: Leonardo Condrasisen                #
 #########################################################################
 
+#Adicionadas as instrucoes JMP, NOP, CMP, JNE, JL, JG ao dicionario
 
 file1 = open('code_imt.txt', 'r')
 Lines = file1.readlines()
 
 result = open('asmimt.cdm', 'w')
 
-# Adicionadas instruções: JMP, NOP, CMP, JNE, JL, JG
+result_txt = open('asmimt.txt', 'w')
+
 conversion = {"HLT":" : 0",
               "STO":" : 1",
               "LD":" : 2",
@@ -33,9 +35,13 @@ n = 0
 for line in Lines:
     try:
         split = line.strip().split(" ")
-        result.write(str(hex(n)).upper()[2:] + conversion[split[0]] + split[1] + "\n")
+        output = str(hex(n)).upper()[2:] + conversion[split[0]] + split[1] + "\n"
+        result.write(output)
+        result_txt.write(output)
         print(line.strip())
         n = n+1
     except:
         pass
+
 result.close()
+result_txt.close()
